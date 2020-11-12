@@ -23,22 +23,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_pizza_camarao.setOnClickListener(this)
     }
 
-
     fun criarPizza(tipo: String) {
-        if (tipo == "queijo") {
-            pizza = PizzaQuatroQueijos()
-        } else if (tipo == "portuguesa") {
-            pizza = PizzaPortuguesa()
-        } else if (tipo == "calabresa") {
-            pizza = PizzaCalabresa()
-        } else if (tipo == "camarao") {
-            pizza = PizzaCamarao()
-        }
+
+      val pizzaFactory = PizzariaFactory()
+          pizza = pizzaFactory.criarPizza(tipo)
     }
 
     override fun onClick(view: View?) {
 
-        when (view?.id) {
+        when ( view?.id ) {
             R.id.btn_pizza_calabresa ->
                 criarPizza("calabresa")
             R.id.btn_pizza_portuguesa ->
