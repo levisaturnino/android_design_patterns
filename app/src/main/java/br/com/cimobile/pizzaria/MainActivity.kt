@@ -3,7 +3,7 @@ package br.com.cimobile.pizzaria
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import br.com.cimobile.pizzaria.factory_simples.PizzariaFactory
+import br.com.cimobile.pizzaria.factory_method.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,23 +24,43 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_pizza_camarao.setOnClickListener(this)
     }
 
-    fun criarPizza(tipo: String) {
-        pizza = PizzariaFactory.criarPizza(tipo)
+    fun criarPizza(cidade: String, tipo: String) {
+        if (cidade == "sao-paulo") {
+            if (tipo == "queijo") {
+                pizza = SPPizzaQuatroQueijos()
+            } else if (tipo == "portuguesa") {
+                pizza = SPPizzaPortuguesa()
+            } else if (tipo == "calabresa") {
+                pizza = SPPizzaCalabresa()
+            }
+        } else if (cidade == "rio-de-janeiro") {
+            if (tipo == "queijo") {
+                pizza = RJPizzaQuatroQueijos()
+            } else if (tipo == "portuguesa") {
+                pizza = RJPizzaPortuguesa()
+            } else if (tipo == "calabresa") {
+                pizza = RJPizzaCalabresa()
+            }
+        }
+    }
+
+    fun delivery(): Pizza? {
+        return pizza
     }
 
     override fun onClick(view: View?) {
 
         when ( view?.id ) {
             R.id.btn_pizza_calabresa ->
-                criarPizza("calabresa")
+                criarPizza("sao-paulo","calabresa")
             R.id.btn_pizza_portuguesa ->
-                criarPizza("portuguesa")
+                criarPizza("sao-paulo","portuguesa")
             R.id.btn_pizza_quatro_queijo ->
-                criarPizza("queijo")
+                criarPizza("rio-de-janeiro","queijo")
             R.id.btn_pizza_camarao ->
-                criarPizza("camarao")
+                criarPizza("rio-de-janeiro","camarao")
         }
 
-        tv_pizza.text = pizza?.name()
+        tv_pizza.text = delivery()?.name()
     }
 }

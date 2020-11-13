@@ -1,4 +1,10 @@
-package br.com.cimobile.pizzaria;
+package br.com.cimobile.pizzaria.factory_simples;
+
+import br.com.cimobile.pizzaria.Pizza;
+import br.com.cimobile.pizzaria.factory_simples.PizzaCalabresa;
+import br.com.cimobile.pizzaria.factory_simples.PizzaCamarao;
+import br.com.cimobile.pizzaria.factory_simples.PizzaPortuguesa;
+import br.com.cimobile.pizzaria.factory_simples.PizzaQuatroQueijos;
 
 public class Pizzaria {
 

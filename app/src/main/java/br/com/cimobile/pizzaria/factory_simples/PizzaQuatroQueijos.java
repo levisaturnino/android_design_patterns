@@ -1,4 +1,6 @@
-package br.com.cimobile.pizzaria;
+package br.com.cimobile.pizzaria.factory_simples;
+
+import br.com.cimobile.pizzaria.Pizza;
 
 public class PizzaQuatroQueijos implements Pizza {
 
