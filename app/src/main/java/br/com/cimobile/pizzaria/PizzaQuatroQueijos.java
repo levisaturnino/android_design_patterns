@@ -1,6 +1,6 @@
 package br.com.cimobile.pizzaria;
 
-class PizzaQuatroQueijos implements Pizza {
+public class PizzaQuatroQueijos implements Pizza {
 
     @Override
     public String name() {

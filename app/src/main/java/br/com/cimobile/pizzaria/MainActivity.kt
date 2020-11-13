@@ -3,6 +3,7 @@ package br.com.cimobile.pizzaria
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import br.com.cimobile.pizzaria.factory_simples.PizzariaFactory
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,9 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun criarPizza(tipo: String) {
-
-      val pizzaFactory = PizzariaFactory()
-          pizza = pizzaFactory.criarPizza(tipo)
+        pizza = PizzariaFactory.criarPizza(tipo)
     }
 
     override fun onClick(view: View?) {

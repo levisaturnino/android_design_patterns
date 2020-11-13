@@ -1,10 +1,17 @@
-package br.com.cimobile.pizzaria;
+package br.com.cimobile.pizzaria.factory_simples;
+
+
+import br.com.cimobile.pizzaria.Pizza;
+import br.com.cimobile.pizzaria.PizzaCalabresa;
+import br.com.cimobile.pizzaria.PizzaCamarao;
+import br.com.cimobile.pizzaria.PizzaPortuguesa;
+import br.com.cimobile.pizzaria.PizzaQuatroQueijos;
 
 public class PizzariaFactory {
 
-    private Pizza pizza;
+    private PizzariaFactory(){}
 
-    public Pizza criarPizza(String tipo){
+    public static Pizza criarPizza(String tipo){
         Pizza pizza = null;
 
         if( tipo.equals("queijo") ){

@@ -1,5 +1,5 @@
 package br.com.cimobile.pizzaria;
 
-interface Pizza {
+public interface Pizza {
     String name();
 }
