@@ -1,14 +1,15 @@
 package br.com.cimobile.pizzaria
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import br.com.cimobile.pizzaria.factory_method.*
+import br.com.cimobile.pizzaria.ui.PizzaRJActivity
+import br.com.cimobile.pizzaria.ui.PizzaSPActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-
-    private var pizza: Pizza? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,49 +19,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun init() {
-        btn_pizza_calabresa.setOnClickListener(this)
-        btn_pizza_portuguesa.setOnClickListener(this)
-        btn_pizza_quatro_queijo.setOnClickListener(this)
-        btn_pizza_camarao.setOnClickListener(this)
-    }
-
-    fun criarPizza(cidade: String, tipo: String) {
-        if (cidade == "sao-paulo") {
-            if (tipo == "queijo") {
-                pizza = SPPizzaQuatroQueijos()
-            } else if (tipo == "portuguesa") {
-                pizza = SPPizzaPortuguesa()
-            } else if (tipo == "calabresa") {
-                pizza = SPPizzaCalabresa()
-            }
-        } else if (cidade == "rio-de-janeiro") {
-            if (tipo == "queijo") {
-                pizza = RJPizzaQuatroQueijos()
-            } else if (tipo == "portuguesa") {
-                pizza = RJPizzaPortuguesa()
-            } else if (tipo == "calabresa") {
-                pizza = RJPizzaCalabresa()
-            }
-        }
-    }
-
-    fun delivery(): Pizza? {
-        return pizza
+        btn_rio_janeiro.setOnClickListener(this)
+        btn_sao_paulo.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
 
         when ( view?.id ) {
-            R.id.btn_pizza_calabresa ->
-                criarPizza("sao-paulo","calabresa")
-            R.id.btn_pizza_portuguesa ->
-                criarPizza("sao-paulo","portuguesa")
-            R.id.btn_pizza_quatro_queijo ->
-                criarPizza("rio-de-janeiro","queijo")
-            R.id.btn_pizza_camarao ->
-                criarPizza("rio-de-janeiro","camarao")
+            R.id.btn_rio_janeiro ->
+                startActivity(Intent(this,PizzaRJActivity::class.java))
+            R.id. btn_sao_paulo ->
+                startActivity(Intent(this,PizzaSPActivity::class.java))
         }
-
-        tv_pizza.text = delivery()?.name()
     }
 }

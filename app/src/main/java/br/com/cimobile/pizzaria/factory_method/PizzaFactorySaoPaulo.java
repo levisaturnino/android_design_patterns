@@ -1,10 +1,12 @@
-package br.com.cimobile.pizzaria.factory_simples;
+package br.com.cimobile.pizzaria.factory_method;
 
 import br.com.cimobile.pizzaria.factory_method.SPPizzaCalabresa;
+import br.com.cimobile.pizzaria.factory_method.SPPizzaCamarao;
 import br.com.cimobile.pizzaria.factory_method.SPPizzaPortuguesa;
 import br.com.cimobile.pizzaria.factory_method.SPPizzaQuatroQueijos;
+import br.com.cimobile.pizzaria.factory_simples.PizzaFactory;
 
-public class PizzaFactorySaoPaulo extends PizzaFactory{
+public class PizzaFactorySaoPaulo extends PizzaFactory {
 
     @Override
     public void criarPizza(String tipo) {
@@ -14,6 +16,8 @@ public class PizzaFactorySaoPaulo extends PizzaFactory{
             pizza = new SPPizzaPortuguesa();
         } else if (tipo == "calabresa") {
             pizza = new SPPizzaCalabresa();
+        }else if (tipo == "camarao") {
+            pizza = new SPPizzaCamarao();
         }
     }
 }

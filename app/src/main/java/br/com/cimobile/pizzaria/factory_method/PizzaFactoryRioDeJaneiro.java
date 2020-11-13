@@ -1,13 +1,15 @@
-package br.com.cimobile.pizzaria.factory_simples;
+package br.com.cimobile.pizzaria.factory_method;
 
 import br.com.cimobile.pizzaria.factory_method.RJPizzaCalabresa;
+import br.com.cimobile.pizzaria.factory_method.RJPizzaCamarao;
 import br.com.cimobile.pizzaria.factory_method.RJPizzaPortuguesa;
 import br.com.cimobile.pizzaria.factory_method.RJPizzaQuatroQueijos;
 import br.com.cimobile.pizzaria.factory_method.SPPizzaCalabresa;
 import br.com.cimobile.pizzaria.factory_method.SPPizzaPortuguesa;
 import br.com.cimobile.pizzaria.factory_method.SPPizzaQuatroQueijos;
+import br.com.cimobile.pizzaria.factory_simples.PizzaFactory;
 
-public class PizzaFactoryRioDeJaneiro extends PizzaFactory{
+public class PizzaFactoryRioDeJaneiro extends PizzaFactory {
 
     @Override
     public void criarPizza(String tipo) {
@@ -17,6 +19,8 @@ public class PizzaFactoryRioDeJaneiro extends PizzaFactory{
             pizza = new RJPizzaPortuguesa();
         } else if (tipo == "calabresa") {
             pizza = new RJPizzaCalabresa();
+        }else if (tipo == "camarao") {
+            pizza = new RJPizzaCamarao();
         }
     }
 }
